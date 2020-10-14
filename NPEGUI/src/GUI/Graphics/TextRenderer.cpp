@@ -84,7 +84,7 @@ namespace GUI
 		CreateTextLayout(text, &pLayout);
 
 		Renderer::Get().m_pBrush->SetColor(text.color);
-		Renderer::Get().m_pRenderTarget->DrawTextLayout(text.pos, pLayout, Renderer::Get().m_pBrush.Get(), D2D1_DRAW_TEXT_OPTIONS_CLIP);
+		Renderer::Get().m_pRenderTarget->DrawTextLayout(text.pos, pLayout, Renderer::Get().m_pBrush.Get(), text.options);
 		Util::Release(&pLayout);
 	}
 

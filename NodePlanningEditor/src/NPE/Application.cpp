@@ -559,6 +559,15 @@ namespace NPE
 			int result = PromptSaveChangesMsgBox();
 			if (result == IDCANCEL)
 				return;
+
+			auto tab = GetActiveSceneTab();
+			if (tab->GetText().text.back() == L'*')
+			{
+				std::wstring newText = tab->GetText().text;
+				newText.erase(newText.end() - 1);
+				tab->SetText(newText);
+			}
+			m_NeedsToSave = false;
 		}
 		
 		for (auto* tab : GetSceneTabs())

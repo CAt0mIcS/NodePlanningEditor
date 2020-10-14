@@ -72,7 +72,7 @@ namespace GUI
 		/// Setter for the text
 		/// </summary>
 		/// <param name="text">Is the new text of the SceneTab</param>
-		void SetText(_In_ const std::wstring& text) { m_Text.text = text; }
+		void SetText(_In_ const std::wstring& text);
 
 		/// <summary>
 		/// Setter for the font size of the text

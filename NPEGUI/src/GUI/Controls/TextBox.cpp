@@ -23,6 +23,7 @@ namespace GUI
 	TextBox::TextBox(_In_opt_ Control* parent)
 		: Control(Type::TextBox, parent), m_Text{}, m_IsMultiline(false), m_Caret(this)
 	{
+		m_Text.options = D2D1_DRAW_TEXT_OPTIONS_CLIP;
 	}
 
 	bool TextBox::Render()

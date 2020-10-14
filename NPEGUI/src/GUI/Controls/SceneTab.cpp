@@ -7,12 +7,13 @@
 #include "GUI/Events/MouseEvent.h"
 
 namespace GUI
-{ 
+{
 	SceneTab::SceneTab(_In_opt_ Control* parent)
 		: GUI::Control(Control::Type::Tab, parent), m_IsActive(false), m_Text{}
 	{
+		m_Text.options = D2D1_DRAW_TEXT_OPTIONS_CLIP;
 	}
-	
+
 	bool SceneTab::Render()
 	{
 		if (Mouse::IsOnControl(this) || IsActive())
@@ -25,7 +26,7 @@ namespace GUI
 
 		return true;
 	}
-	
+
 	bool SceneTab::OnEvent(_In_ Event& e)
 	{
 		switch (e.GetType())
@@ -42,10 +43,10 @@ namespace GUI
 			return true;
 		}
 		}
-		
+
 		return false;
 	}
-	
+
 	void SceneTab::RenderText()
 	{
 		float xOffset = m_Size.width / 30.0f;
@@ -55,6 +56,24 @@ namespace GUI
 		m_Text.size = { m_Size.width - xOffset, m_Size.height - yOffset };
 
 		TextRenderer::Get().RenderText(m_Text);
+	}
+	
+	void SceneTab::SetText(_In_ const std::wstring& text)
+	{
+		m_Text.text = text;
+
+		if (m_Text.text.back() == L'*')
+		{
+			return;
+		}
+		else
+		{
+			m_Text.size.width = FLT_MAX;
+
+			auto metrics = TextRenderer::Get().GetTextMetrics(m_Text);
+			m_Size.width = metrics.width + 30;
+		}
+		
 	}
 }
 
