@@ -158,7 +158,7 @@ namespace NPE
 	{
 		for (unsigned int i = 0; i < controls.size(); ++i)
 		{
-			if (controls[i]->GetId() == watched->GetId())
+			if (controls[i]->GetType() == GUI::Control::Type::Node && controls[i]->GetId() == watched->GetId())
 			{
 				GUI::Button* lineBtn = (GUI::Button*)controls[i]->GetChildren()[2];
 
