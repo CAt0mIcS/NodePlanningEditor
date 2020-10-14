@@ -17,6 +17,7 @@ You can:
 * Move the Nodes around
 * Save the Scene
 * Open another Save File
+* Open multiple Tabs (Different Save Files)
 
 You can find the full documentation on the [wiki](https://github.com/CAt0mIcS/NodePlanningEditor/wiki) (soon).
 
